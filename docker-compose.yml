@@ -11,6 +11,17 @@ services:
       POSTGRES_DB: nest
     volumes: 
       - db:/var/lib/postgresql/data
+  test-db:
+    image: postgres:13
+    ports:
+      - 5435:5432
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    volumes: 
+      - db:/var/lib/postgresql/data
 volumes:
   db:
     driver: local

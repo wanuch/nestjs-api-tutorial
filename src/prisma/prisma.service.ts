@@ -15,6 +15,8 @@ export class PrismaService extends PrismaClient {
   }
 
   cleanDb() {
+
+    // this.$transaction declar to remove specific in order
     return this.$transaction([
       this.bookmark.deleteMany(),
       this.user.deleteMany(),
